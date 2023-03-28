@@ -50,10 +50,13 @@ body {
     flex-direction: column;
 }
 
-
 .container-category-scroll {
     display: flex;
     overflow-x: scroll;
+}
+
+.container-category-scroll .food:nth-child(1) {
+    margin-left: 2rem;
 }
 
 ::-webkit-scrollbar {
@@ -66,16 +69,11 @@ body {
     flex-direction: column;
 
     background: #ffffff;
-    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
     border-radius: 9px;
 
     margin-right: 1.6rem;
     padding: 1.5rem;
     gap: 0.8rem;
-}
-
-.container-category-scroll .food:nth-child(1) {
-  margin-left: 2rem;
 }
 
 .food h3 {
@@ -93,10 +91,34 @@ body {
     color: #a6a6a6;
 }
 
-.food span {
+.food #price-and-check {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.food #price-and-check span {
     font-family: 'Roboto';
     font-weight: 400;
     font-size: 1.6rem;
     line-height: 1.9rem;
     color: #000000;
+}
+
+.food #price-and-check div {
+  display: none;
+}
+
+.food #price-and-check ion-icon {
+    font-size: 1.9rem;
+    color: #32b72f;
+}
+
+/* i-disabled i-enabled  */
+/* b-disabled b-enabled */
+
+.b-enabled {
+  border: 1px solid black;
+    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25),
+        inset 0px 0px 0px 5px #32b72f;
 }
