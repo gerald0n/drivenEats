@@ -1,5 +1,6 @@
 body {
     background: #eeeeee;
+    height: 2000px;
 }
 
 .title-app {
@@ -59,9 +60,7 @@ body {
     margin-left: 2rem;
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
+
 
 .food {
     width: 17.2rem;
@@ -81,6 +80,10 @@ body {
     font-weight: 700;
     font-size: 1.6rem;
     color: #333333;
+}
+
+.container-category-scroll::-webkit-scrollbar {
+    display: none;
 }
 
 .food p {
@@ -105,20 +108,17 @@ body {
     color: #000000;
 }
 
-.food #price-and-check div {
-  display: none;
-}
-
 .food #price-and-check ion-icon {
     font-size: 1.9rem;
     color: #32b72f;
 }
 
-/* i-disabled i-enabled  */
-/* b-disabled b-enabled */
+.food #price-and-check .i-disabled {
+    display: none;
+}
 
 .b-enabled {
-  border: 1px solid black;
+    /* border: 1px solid black; */
     box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25),
         inset 0px 0px 0px 5px #32b72f;
 }
