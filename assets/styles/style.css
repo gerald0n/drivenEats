@@ -1,29 +1,102 @@
+body {
+    background: #eeeeee;
+}
+
 .title-app {
-  height: 9.2rem;
-  padding-left: 2rem;
+    height: 9.2rem;
+    padding-left: 2rem;
+    margin-bottom: 3rem;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  background-color: #CF2B2B;
-  color: white;
-  
-  
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #cf2b2b;
+    color: white;
 }
 
 .title-app h1 {
-  font-size: 4.4rem;
-  font-weight: 400;
-  font-family: 'Righteous';
-  letter-spacing: -0.012em;
-
+    font-size: 4.4rem;
+    font-weight: 400;
+    font-family: 'Righteous';
+    letter-spacing: -0.012em;
 }
 
 .title-app p {
-  font-size: 1.8rem;
-  font-weight: 400;
-  font-family: 'Roboto';
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-family: 'Roboto';
 }
 
+/*  */
+/*  */
+
+.container-category {
+    display: flex;
+    flex-direction: column;
+    gap: 1.7rem;
+}
+
+.container-category h2 {
+    font-family: 'Righteous';
+    font-size: 2.6rem;
+
+    margin-left: 2rem;
+}
+
+.content-app {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.container-category-scroll {
+    display: flex;
+    overflow-x: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.food {
+    width: 17.2rem;
+    display: flex;
+    flex-direction: column;
+
+    background: #ffffff;
+    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+
+    margin-right: 1.6rem;
+    padding: 1.5rem;
+    gap: 0.8rem;
+}
+
+.container-category-scroll .food:nth-child(1) {
+  margin-left: 2rem;
+}
+
+.food h3 {
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #333333;
+}
+
+.food p {
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    color: #a6a6a6;
+}
+
+.food span {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    color: #000000;
+}
