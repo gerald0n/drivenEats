@@ -1,13 +1,21 @@
 const listFoods = document.querySelectorAll('.food')
 const listDrinks = document.querySelectorAll('.drink')
 const listDesserts = document.querySelectorAll('.dessert')
+const btnOrder = document.querySelector('#btn')
+const listOrder = []
 
 listFoods.forEach(food => {
     food.addEventListener('click', () => {
         check(food)
+
+        // listOrder.push(...food.childNodes)
+        // let testes = listOrder.filter(item => item.innerText !== undefined)
+        // console.log(testes)
+
         listFoods.forEach(foodClass => {
             uncheck(foodClass, food)
         })
+        order(document.getElementsByClassName('b-enabled').length)
     })
 })
 
@@ -17,24 +25,27 @@ listDrinks.forEach(drink => {
         listDrinks.forEach(drinkClass => {
             uncheck(drinkClass, drink)
         })
+        order(document.getElementsByClassName('b-enabled').length)
     })
 })
 
 listDesserts.forEach(dessert => {
     dessert.addEventListener('click', () => {
         check(dessert)
+
         listDesserts.forEach(dessertClass => {
             uncheck(dessertClass, dessert)
         })
+        order(document.getElementsByClassName('b-enabled').length)
     })
 })
 
-
-
-
-
-
-
+const order = validation => {
+    if (validation == 3) {
+        btnOrder.disabled = false
+        btnOrder.innerText = 'Finalizar Pedido'
+    }
+}
 
 const check = divClicked => {
     divClicked.classList.add('b-enabled')
@@ -56,5 +67,5 @@ const uncheck = (divCurrent, divClicked) => {
         divClicked
             .querySelector('#price-and-check div')
             .classList.remove('i-disabled')
-    }
+    } 
 }
