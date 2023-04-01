@@ -20,9 +20,6 @@ listFoods.forEach(food => {
         order()
         orderFood.name = food.querySelector('h3').innerText
         orderFood.price = food.querySelector('#price-and-check span').innerText
-
-        
-        
     })
 })
 
@@ -34,7 +31,9 @@ listDrinks.forEach(drink => {
         })
         order()
         orderDrink.name = drink.querySelector('h3').innerText
-        orderDrink.price = drink.querySelector('#price-and-check span').innerText
+        orderDrink.price = drink.querySelector(
+            '#price-and-check span'
+        ).innerText
     })
 })
 
@@ -47,9 +46,11 @@ listDesserts.forEach(dessert => {
         })
         order()
         orderDessert.name = dessert.querySelector('h3').innerText
-        orderDessert.price = dessert.querySelector('#price-and-check span').innerText
+        orderDessert.price = dessert.querySelector(
+            '#price-and-check span'
+        ).innerText
     })
-}) 
+})
 
 const order = () => {
     if (document.getElementsByClassName('b-enabled').length == 3) {
@@ -78,5 +79,5 @@ const uncheck = (divCurrent, divClicked) => {
         divClicked
             .querySelector('#price-and-check div')
             .classList.remove('i-disabled')
-    } 
+    }
 }
