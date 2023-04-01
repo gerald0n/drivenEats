@@ -2,20 +2,27 @@ const listFoods = document.querySelectorAll('.food')
 const listDrinks = document.querySelectorAll('.drink')
 const listDesserts = document.querySelectorAll('.dessert')
 const btnOrder = document.querySelector('#btn')
-const listOrder = []
+const orderFood = new Object()
+const orderDrink = new Object()
+const orderDessert = new Object()
+
+btnOrder.addEventListener('click', () => {
+    console.log(orderFood, orderDrink, orderDessert)
+})
 
 listFoods.forEach(food => {
     food.addEventListener('click', () => {
         check(food)
 
-        // listOrder.push(...food.childNodes)
-        // let testes = listOrder.filter(item => item.innerText !== undefined)
-        // console.log(testes)
-
         listFoods.forEach(foodClass => {
             uncheck(foodClass, food)
         })
-        order(document.getElementsByClassName('b-enabled').length)
+        order()
+        orderFood.name = food.querySelector('h3').innerText
+        orderFood.price = food.querySelector('#price-and-check span').innerText
+
+        
+        
     })
 })
 
@@ -25,7 +32,9 @@ listDrinks.forEach(drink => {
         listDrinks.forEach(drinkClass => {
             uncheck(drinkClass, drink)
         })
-        order(document.getElementsByClassName('b-enabled').length)
+        order()
+        orderDrink.name = drink.querySelector('h3').innerText
+        orderDrink.price = drink.querySelector('#price-and-check span').innerText
     })
 })
 
@@ -36,12 +45,14 @@ listDesserts.forEach(dessert => {
         listDesserts.forEach(dessertClass => {
             uncheck(dessertClass, dessert)
         })
-        order(document.getElementsByClassName('b-enabled').length)
+        order()
+        orderDessert.name = dessert.querySelector('h3').innerText
+        orderDessert.price = dessert.querySelector('#price-and-check span').innerText
     })
-})
+}) 
 
-const order = validation => {
-    if (validation == 3) {
+const order = () => {
+    if (document.getElementsByClassName('b-enabled').length == 3) {
         btnOrder.disabled = false
         btnOrder.innerText = 'Finalizar Pedido'
     }
