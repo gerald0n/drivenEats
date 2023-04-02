@@ -64,7 +64,7 @@ confirmOrder.addEventListener('click', () => {
         orderFood.price +
         orderDrink.price +
         orderDessert.price
-    ).toFixed(2)} \nNome: \n${clientName}\nEndereço: \n${clientAddress}`
+    ).toFixed(2)} \n\nNome: ${clientName}\nEndereço: ${clientAddress}`
 
     window.open(
         `https://wa.me/+5584981583718?text=${encodeURIComponent(message)}`
