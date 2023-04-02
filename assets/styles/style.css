@@ -125,9 +125,10 @@ body {
 }
 
 .b-enabled {
-    /* border: 1px solid black; */
+    border: 1px solid #000000;
     box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25),
         inset 0px 0px 0px 5px #32b72f;
+    border-radius: 9px;
 }
 
 .btn-order {
@@ -135,7 +136,7 @@ body {
     height: 9.2rem;
     background: white;
     padding: 1.5rem 2rem;
-    box-shadow: 10px 0px 10px 4px rgba(0, 0, 0, 0.10);
+    box-shadow: 10px 0px 10px 4px rgba(0, 0, 0, 0.1);
 
     position: fixed;
     bottom: 0;
@@ -146,12 +147,20 @@ body {
     width: 100%;
     height: 100%;
 
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 2.3rem;
+    text-align: center;
+    letter-spacing: 0.018em;
+
     border: none;
-    background:  #32B72F;
+    background: #32b72f;
     border-radius: 5rem;
     color: white;
+    cursor: pointer;
 
-    padding-inline: 15rem;
+    padding-inline: 11.5rem;
 }
 
 .btn-order #btn:disabled {
@@ -162,6 +171,101 @@ body {
     background: #cbcbcb;
     border-radius: 5rem;
     color: white;
+    cursor: default;
 
-    padding-inline: 15rem;
+    padding-inline: 11.5rem;
+}
+
+/* MODAL */
+
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(255, 255, 255, 0.7);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 10;
+}
+
+.container-modal {
+    width: 37.7rem;
+    background: #50d074;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+
+    padding: 2.1rem 2.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.content-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+.container-modal > p {
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.content {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 0.018em;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+}
+
+#total-price p {
+    font-weight: 700;
+}
+
+.footer-modal button {
+    width: 32.9rem;
+    height: 5.2rem;
+    background: #ffffff;
+    border-radius: 100px;
+    border: none;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 0.018em;
+    color: #50d074;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+.footer-modal p {
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    letter-spacing: 0.018em;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+#client-name, #client-address {
+    display: inline-block; 
+    font-size: 1.6rem;
+}
+
+#client-name p:first-child, #client-address p:first-child {
+    font-weight: 700;
 }

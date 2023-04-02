@@ -6,8 +6,69 @@ const orderFood = new Object()
 const orderDrink = new Object()
 const orderDessert = new Object()
 
+let clientName
+let clientAddress
+
+const containerModal = document.querySelector('.modal')
+const cancelOrder = document.querySelector('#cancel-order')
+const confirmOrder = document.querySelector('#confirm-order')
+
 btnOrder.addEventListener('click', () => {
-    console.log(orderFood, orderDrink, orderDessert)
+    const modal = document.querySelector('.content-modal')
+    clientName = prompt('Digite seu nome: ')
+    clientAddress = prompt('Digte o endereço de entrega: ')
+
+    modal.innerHTML = `
+    <div class="content" id="content-1">
+        <p>${orderFood.name}</p>
+        <p>${orderFood.price.toFixed(2)}</p>
+    </div>
+    <div class="content" id="content-2">
+        <p>${orderDrink.name}</p>
+        <p>${orderDrink.price.toFixed(2)}</p>
+    </div>
+    <div class="content" id="content-2">
+        <p>${orderDessert.name}</p>
+        <p>${orderDessert.price.toFixed(2)}</p>
+    </div>
+    <div class="content" id="total-price">
+        <p>TOTAL</p>
+        <p>R$ ${(
+            orderFood.price +
+            orderDrink.price +
+            orderDessert.price
+        ).toFixed(2)}</p>
+    </div>
+    <div class="content" id="client-name">
+        <p>Nome:</p>
+        <p>${clientName}</p>
+    </div>
+    <div class="content" id="client-address">
+        <p>Endereço:</p>
+        <p>${clientAddress}</p>
+    </div>`.replaceAll('.', ',')
+
+    containerModal.style.display = 'flex'
+})
+
+cancelOrder.addEventListener('click', () => {
+    containerModal.style.display = 'none'
+})
+
+confirmOrder.addEventListener('click', () => {
+    let message = `Olá, gostaria de fazer pedido: \n- Prato: ${
+        orderFood.name
+    } \n- Bebida: ${orderDrink.name} \n- Sobremesa: ${
+        orderDessert.name
+    } \nTotal: R$ ${(
+        orderFood.price +
+        orderDrink.price +
+        orderDessert.price
+    ).toFixed(2)} \nNome: \n${clientName}\nEndereço: \n${clientAddress}`
+
+    window.open(
+        `https://wa.me/+5584981583718?text=${encodeURIComponent(message)}`
+    )
 })
 
 listFoods.forEach(food => {
@@ -19,7 +80,14 @@ listFoods.forEach(food => {
         })
         order()
         orderFood.name = food.querySelector('h3').innerText
-        orderFood.price = food.querySelector('#price-and-check span').innerText
+        orderFood.price = Number(
+            food
+                .querySelector('#price-and-check span')
+                .innerText.split('')
+                .splice(3)
+                .join('')
+                .replace(',', '.')
+        )
     })
 })
 
@@ -31,9 +99,14 @@ listDrinks.forEach(drink => {
         })
         order()
         orderDrink.name = drink.querySelector('h3').innerText
-        orderDrink.price = drink.querySelector(
-            '#price-and-check span'
-        ).innerText
+        orderDrink.price = Number(
+            drink
+                .querySelector('#price-and-check span')
+                .innerText.split('')
+                .splice(3)
+                .join('')
+                .replace(',', '.')
+        )
     })
 })
 
@@ -46,16 +119,21 @@ listDesserts.forEach(dessert => {
         })
         order()
         orderDessert.name = dessert.querySelector('h3').innerText
-        orderDessert.price = dessert.querySelector(
-            '#price-and-check span'
-        ).innerText
+        orderDessert.price = Number(
+            dessert
+                .querySelector('#price-and-check span')
+                .innerText.split('')
+                .splice(3)
+                .join('')
+                .replace(',', '.')
+        )
     })
 })
 
 const order = () => {
     if (document.getElementsByClassName('b-enabled').length == 3) {
         btnOrder.disabled = false
-        btnOrder.innerText = 'Finalizar Pedido'
+        btnOrder.innerText = 'Fechar Pedido'
     }
 }
 
