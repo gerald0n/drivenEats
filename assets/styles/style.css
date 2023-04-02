@@ -2,6 +2,12 @@ body {
     background: #eeeeee;
 }
 
+img {
+    height: 8.7rem;
+    width: 14.4rem;
+    border-radius: .4rem;
+}
+
 .title-app {
     height: 9.2rem;
     padding-left: 2rem;
