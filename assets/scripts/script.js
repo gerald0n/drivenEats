@@ -56,7 +56,7 @@ cancelOrder.addEventListener('click', () => {
 })
 
 confirmOrder.addEventListener('click', () => {
-    let message = `Olá, gostaria de fazer pedido: \n- Prato: ${
+    const message = `Olá, gostaria de fazer pedido: \n- Prato: ${
         orderFood.name
     } \n- Bebida: ${orderDrink.name} \n- Sobremesa: ${
         orderDessert.name
