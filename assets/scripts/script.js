@@ -64,7 +64,9 @@ confirmOrder.addEventListener('click', () => {
         orderFood.price +
         orderDrink.price +
         orderDessert.price
-    ).toFixed(2)} \n\nNome: ${clientName}\nEndereço: ${clientAddress}`.replaceAll('.', ',')
+    ).toFixed(
+        2
+    )} \n\nNome: ${clientName}\nEndereço: ${clientAddress}`.replaceAll('.', ',')
 
     window.open(
         `https://wa.me/+5584981583718?text=${encodeURIComponent(message)}`
@@ -131,7 +133,7 @@ listDesserts.forEach(dessert => {
 })
 
 const order = () => {
-    if (document.getElementsByClassName('b-enabled').length == 3) {
+    if (document.getElementsByClassName('b-enabled').length === 3) {
         btnOrder.disabled = false
         btnOrder.innerText = 'Fechar Pedido'
     }
@@ -146,7 +148,7 @@ const check = divClicked => {
 const uncheck = (divCurrent, divClicked) => {
     if (
         divCurrent.classList.value.includes('b-enabled') &&
-        divCurrent != divClicked
+        divCurrent !== divClicked
     ) {
         divCurrent.classList.remove('b-enabled')
         divCurrent
